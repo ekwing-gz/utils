@@ -1,0 +1,22 @@
+{
+  "name": "@ek/uitls",
+  "amdName": "ek-utils",
+  "version": "0.0.1",
+  "repository": "https://github.com/ekwing/utils",
+  "main": "dist/ek-utils.js",
+  "module": "dist/ek-utils.es.js",
+  "jsnext:main": "dist/ek-utils.es.js",
+  "umd:main": "dist/ek-utils.umd.js",
+  "author": "L-Chris <563303226@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist && microbundle --external all && yarn build:doc",
+    "build:doc": "rimraf docs && jsdoc -c .jsdocrc.js"
+  },
+  "devDependencies": {
+    "docdash": "^1.0.0",
+    "microbundle": "^0.6.0",
+    "rimraf": "^2.6.2",
+    "taffydb": "^2.7.3"
+  }
+}
