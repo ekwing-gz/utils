@@ -1,8 +1,18 @@
 const oProto = Object.prototype
 const toString = oProto.toString
-const hasOwnProperty = oProto.hasOwnProperty
 
+/**
+ * do nothing
+ * @function
+ */
 export const noop = () => {}
+
+/**
+ * return self
+ * @function
+ * @param {*} params
+ * @returns {*}
+ */
 export const identity = _ => _
 
 // type check
@@ -14,6 +24,7 @@ function isType (name) {
 
 /**
  * is Function or not
+ * @function
  * @param {*} params
  * @returns {boolean}
  */
@@ -21,6 +32,7 @@ export const isFunction = isType('Function')
 
 /**
  * is Array or not
+ * @function
  * @param {*} params
  * @returns {boolean}
  */
@@ -32,7 +44,7 @@ export const isArray = isType('Array')
  * @param {string} key
  * @returns {map}
  */
-export const toMap = (collection, key) => {
+export function toMap (collection, key) {
   const res = new Map()
   for (let _ of collection) {
     res.set(_[key], _)
@@ -47,7 +59,7 @@ export const toMap = (collection, key) => {
  * @param {string} valueKey
  * @returns {*}
  */
-export const pluckMap = (map, key, valueKey) => {
+export function pluckMap (map, key, valueKey) {
   if (!map.has(key)) return
   let item = map.get(key)
   if (!valueKey) return item
@@ -59,9 +71,9 @@ export const pluckMap = (map, key, valueKey) => {
  * @param {function} callback
  * @param {number} duration
  * @param {boolean} [first=true]
- * @returns {string} id
+ * @returns {function} clearTick
  */
-export const setTick = (fn, duration, first = true) => {
+export function setTick (fn, duration, first = true) {
   first && fn()
   let id = setInterval(fn, duration)
   return () => clearInterval(id)
@@ -72,7 +84,7 @@ export const setTick = (fn, duration, first = true) => {
  * @param {date} endTime
  * @returns {string}
  */
-export const fromNow = endTime => {
+export function fromNow (endTime) {
   let now = (new Date()).valueOf()
   let leftTime = (endTime - now) / 1000
   let res = []

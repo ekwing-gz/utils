@@ -2,7 +2,7 @@
 
 module.exports = {
   "source": {
-    "include": ["./index.js"],
+    "include": ["./src"],
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_"
   },
